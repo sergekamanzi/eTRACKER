@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./images/logoo.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/budgetplan.css">
+    <title>Plan Selection</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="./index.html"><img src="./images/logo.png" width="150px" height="80px"></a>
+          <ul>
+              <li><a href="./dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+              <li><a href="./reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+              <li><a href="./budgetplan.html"> <i class="fas fa-wallet"></i>Budget plan</a></li>
+              <li><a href="./settings.html"> <i class="fas fa-cog"></i> Settings</a></li>
+              <li><a href="./help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+          </ul>
+      </div>
+
+
+
+    <div class="plans-container">
+        <div class="plan-card">
+            <h3>Basic Plan</h3>
+            <ul>
+                <li>Track up to 100 transactions</li>
+                <li>Basic expense reports</li>
+                <li>Email support</li>
+            </ul>
+            <button class="buy-btn" data-plan="basic">Buy Plan</button>
+        </div>
+        <div class="plan-card">
+            <h3>Standard Plan</h3>
+            <ul>
+                <li>Track up to 500 transactions</li>
+                <li>Detailed expense reports</li>
+                <li>Priority email support</li>
+            </ul>
+            <button class="buy-btn" data-plan="standard">Buy Plan</button>
+        </div>
+        <div class="plan-card">
+            <h3>Premium Plan</h3>
+            <ul>
+                <li>Unlimited transactions</li>
+                <li>Advanced expense reports</li>
+                <li>24/7 customer support</li>
+            </ul>
+            <button class="buy-btn" data-plan="premium">Buy Plan</button>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2 style="color: rgb(35, 104, 77);">Select Your Plan</h2>
+            <p id="plan-details"></p>
+            <p style="font-weight: bold;">Price: <span id="plan-price"></span> per year</p>
+            <button id="confirm-btn">Confirm Purchase</button>
+        </div>
+    </div>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    const popup = document.getElementById('popup');
+    const close = document.querySelector('.close');
+    const planDetails = document.getElementById('plan-details');
+    const planPrice = document.getElementById('plan-price');
+
+    const plans = {
+        basic: { details: 'Basic Plan - Track up to 100 transactions', price: '$50/year' },
+        standard: { details: 'Standard Plan - Track up to 500 transactions', price: '$300/year' },
+        premium: { details: 'Premium Plan - Unlimited transactions', price: '$500/year' }
+    };
+
+    buyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const plan = button.getAttribute('data-plan');
+            planDetails.textContent = plans[plan].details;
+            planPrice.textContent = plans[plan].price;
+            popup.style.display = 'block';
+        });
+    });
+
+    close.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f5f2f2;
+}
+
+.sidebar {
+    height:1350px;
+    width: 250px;
+    background-color: #28634c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    width: 100%;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    color: #121312;
+}
+
+.help-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    
+}
+
+.help-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.help-content h1 {
+    font-size: 2em;
+    color: #28634c;
+    margin-bottom: 20px;
+}
+
+.help-content h2 {
+    font-size: 1.5em;
+    color: #28634c;
+    margin-top: 20px;
+}
+
+.help-content p,
+.help-content ul {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.6;
+}
+
+.help-content ul {
+    padding-left: 20px;
+}
+
+.help-content ul li {
+    margin-bottom: 10px;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px;
+        height: auto;
+    }
+
+
+    .sidebar ul li a {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .help-section {
+        margin-left: 0; /* No offset for sidebar */
+        padding: 10px;
+    }
+
+    .help-content {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .help-content h1 {
+        font-size: 1.5em; /* Adjust font size */
+    }
+
+    .help-content h2 {
+        font-size: 1.2em; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100px;
+    }
+    
+    
+    .sidebar ul {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .sidebar ul li a {
+        padding: 5px; /* Further adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .help-section {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .help-content {
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .help-content h1 {
+        font-size: 1.2em; /* Adjust font size */
+    }
+
+    .help-content h2 {
+        font-size: 1em; /* Adjust font size */
+    }
+
+    .help-content p,
+    .help-content ul {
+        font-size: 0.9em; /* Adjust font size */
+    }
+
+    .help-content ul {
+        padding-left: 15px; /* Adjust padding */
+    }
+
+    .help-content ul li {
+        margin-bottom: 5px; /* Adjust margin */
+    }
+}

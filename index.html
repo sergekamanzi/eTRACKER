@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/logoo.jpg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>eTRACKER</title>
+    <link rel="stylesheet" href="./style/styles.css">
+  </head>
+  <body>
+    <section class="section" id="home">
+      <video autoplay muted loop id="background-video">
+        <source src="./images/video.mp4" type="video/mp4">
+    </video>
+        <div class="navbar">
+            <div class="logo">
+            <img src="./images/logo.png" >
+           </div>
+           <div class="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#who">Who we are?</a></li>
+                <li><a href="#talk">Contact us</a></li>
+            </ul>
+           </div>
+        </div>
+
+        <div class="intro">
+
+            <h3 style="font-size: 45px;color: rgb(247, 247, 247);">Start your bussiness using <span class="auto-type" style="background-color: rgb(46, 46, 139);"></span><br>PLAN YOUR <b style="color: rgb(10, 35, 146);">FUTURE</b> BY NOW<br></h3>
+            <p style="font-size: 25px;font-family:Georgia, 'Times New Roman', Times, serif;color: white;">start your plan, execute your plan using our billing dashboard </p>
+            <a href="./sign.html"><button>PLAN NOW</button></a>
+        </div>
+
+</section>
+
+<section class="section2" id="solutions">
+  <div class="solution">
+      <h2 style="text-decoration: underline;text-underline-offset: 25px;">Key Features</h2>
+      <div class="key">
+          <div class="card">
+               <h4>TRACK</h4>
+               <p>Tracking involves the systematic process of recording and monitoring various activities, events, or data points over time.</p>
+          </div>
+
+          <div class="card">
+              <h4>MANAGE</h4>
+              <p>Management encompasses the organization, planning and oversight of resources, tasks, and people to achieve specific goals. </p>
+         </div>
+
+         <div class="card">
+          <h4>ANALYSE</h4>
+          <p>Analysis involves examining data or information methodically to extract meaningful insights and make informed decisions.</p>
+         </div>
+      </div>
+
+  </div>
+
+</section>
+<section class="section3" id="who">
+        <div class="We">
+          <h2 style="font-weight: bold;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-left: 50px;text-decoration: underline;text-underline-offset: 25px;">WHO WE ARE?</h2>
+          <p style="text-align: start;font-size: medium;">As eTRACKER, we are committed to providing a comprehensive solution<br> 
+            for managing and analyzing expenses. <br>
+            Our web application offers a range of features designed to help<br> 
+            users track their financial activities efficiently.<br> 
+            We aim to empower individuals and businesses to make informed<br> 
+            financial decisions through a user-friendly platform that includes <br>
+            expense tracking, detailed reports, and financial insights.</p>
+
+            <button>READ MORE</button>
+
+        </div>
+
+        <div class="we-img">
+          <img src="./images/show.jpg" >
+        </div>
+</section>
+<section class="section4" id="talk">
+   <div class="fill">
+    <div class="third1">
+    <h2>Let's Talk</h2>
+    <p>Send us a message</p>
+    </div>
+    <div class="third2">
+    <h5>Email</h5>
+    <i class="fas fa-envelope green-icon" style="font-size: 15px;cursor: pointer;"></i> etracker@gmail.com
+    </div>
+
+
+   </div>
+
+   <div class="forms">
+    <form id="contact-form">
+      <label for="name">Names:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required><br><br>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+      <button type="submit">Send</button>
+  </form>
+
+   </div>
+
+</section>
+
+<section class="section5" id="Contact">
+  <div class="contact">
+    <div class="first">
+        <a href="./index.html"><img src="./images/logo.png" width="130px" height="100px"></a>
+        <p style="margin-top: 30px;">eTRACKER is essential<br>for your expense in real time </p>
+      <div class="footer-img">
+        <i class="fab fa-instagram" id="ig"></i>
+        <i class="fab fa-linkedin" id="link"></i>
+        <i class="fab fa-twitter" id="twitter"></i>
+      </div>
+
+    </div>
+
+    <div>
+        <p style="font-weight: bold;color: black;">Company</p>
+        <p >carmel motor group ltd</p>
+        <p >nganira company ltd</p>
+        <p >eco-guard ltd</p>
+    </div>
+
+    <div>
+        <p style="font-weight: bold;color: black;">Contact us</p>
+        <p >etracker@gmail.com</p>
+        <p >+25078888888</p>
+        <p >5 KN 27 Street, Kigali,</p>
+    </div>
+  </div>
+  <hr class="h-line">
+  <footer >&copy;2024 -eTRACKER group Ltd
+
+   <a href="#"> Privacy policy
+    ·
+    <b style="text-decoration: underline;color: rgb(48, 48, 136);">Terms & Conditions</b></a></footer>
+
+</section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.querySelector(".auto-type");
+    const text = "eTRACKER.";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            textElement.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, 200);
+        } else {
+            setTimeout(() => {
+                textElement.innerHTML = "";
+                index = 0;
+                type();
+            }, 2000); // 2-second delay before restarting the typing effect
+        }
+    }
+
+    type();
+});
+
+  </script>
+  </body>

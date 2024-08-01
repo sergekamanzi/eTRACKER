@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/logoo.jpg" type="image/png">
+    <link rel="stylesheet" href="./style/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Dashboard-etracker</title>
+</head>
+<body>
+    <div class="sidebar">
+      <a href="./index.html"><img src="./images/logo.png" width="150px" height="80px"></a>
+        <ul>
+            <li><a href="./dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="./reports.html"><i class="fas fa-chart-line"></i> Reports</a></li>
+            <li><a href="./budgetplan.html"> <i class="fas fa-wallet"></i>Budget plan</a></li>
+            <li><a href="./settings.html"> <i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="./help.html"><i class="fas fa-question-circle"></i> Help</a></li>
+        </ul>
+    </div>
+    <div class="content" id="dashboard">
+        <script>
+            window.onload = function () {
+              var charts = [];
+              var axisX = {
+                labelFormatter: function(){ return "";},
+                tickLength: 0,
+                lineThickness: 0
+              }, 
+              axisY = {
+                labelFormatter: function(){ return "";},
+                tickLength: 0,
+                gridThickness: 0,
+              };
+              
+              var newUserOptions = {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                  text: "sales",
+                  fontSize: 18,
+                  verticalAlign: "bottom"
+                },
+                axisX: axisX,
+                axisY: axisY,
+                data: [{
+                  type: "splineArea", //change type to bar, line, area, pie, etc
+                  markerSize: 0,
+                  dataPoints: [
+                    { x: new Date(2024, 00, 01), y: 1553 },
+                    { x: new Date(2024, 01, 01), y: 1374 },
+                    { x: new Date(2024, 02, 01), y: 1065 },
+                    { x: new Date(2024, 03, 01), y: 1521 },
+                    { x: new Date(2024, 04, 01), y: 1695 },
+                    { x: new Date(2024, 05, 01), y: 1381 },
+                    { x: new Date(2024, 06, 01), y: 1693 },
+                    { x: new Date(2024, 07, 01), y: 1624 },
+                    { x: new Date(2024, 08, 01), y: 1367 },
+                    { x: new Date(2024, 09, 01), y: 1426 },
+                    { x: new Date(2024, 10, 01), y: 1024 },
+                    { x: new Date(2024, 11, 01), y: 1960 }
+                  ]
+                }]
+              }
+              var bounceRateOptions = {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                  text: "profit/loss",
+                  fontSize: 18,
+                  verticalAlign: "bottom"
+                },
+                axisX: axisX,
+                axisY: axisY,
+                data: [{
+                  type: "splineArea", //change type to bar, line, area, pie, etc
+                  markerSize: 0,
+                  yValueFormatString: "#.##%",
+                  dataPoints: [
+                    { x: new Date(2024, 00, 01), y: 0.6731 },
+                    { x: new Date(2024, 01, 01), y: 0.6743 },
+                    { x: new Date(2024, 02, 01), y: 0.6760 },
+                    { x: new Date(2024, 03, 01), y: 0.6751 },
+                    { x: new Date(2024, 04, 01), y: 0.6757 },
+                    { x: new Date(2024, 05, 01), y: 0.6761 },
+                    { x: new Date(2024, 06, 01), y: 0.6768 },
+                    { x: new Date(2024, 07, 01), y: 0.6771 },
+                    { x: new Date(2024, 08, 01), y: 0.6773 },
+                    { x: new Date(2024, 09, 01), y: 0.6764 },
+                    { x: new Date(2024, 10, 01), y: 0.6757 },
+                    { x: new Date(2024, 11, 01), y: 0.6751 }
+                  ]
+                }]
+              }
+              
+              var pageViewsOptions = {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                  text: "purchase",
+                  fontSize: 18,
+                  verticalAlign: "bottom"
+                },
+                axisX: axisX,
+                axisY: axisY,
+                data: [{
+                  type: "splineArea", //change type to bar, line, area, pie, etc
+                  markerSize: 0,
+                  dataPoints: [
+                    { x: new Date(2024, 00, 01), y: 1533 },
+                    { x: new Date(2024, 01, 01), y: 1699 },
+                    { x: new Date(2024, 02, 01), y: 1047 },
+                    { x: new Date(2024, 03, 01), y: 1348 },
+                    { x: new Date(2024, 04, 01), y: 1678 },
+                    { x: new Date(2024, 05, 01), y: 1407 },
+                    { x: new Date(2024, 06, 01), y: 1946 },
+                    { x: new Date(2024, 07, 01), y: 1937 },
+                    { x: new Date(2024, 08, 01), y: 1117 },
+                    { x: new Date(2024, 09, 01), y: 1936 },
+                    { x: new Date(2024, 10, 01), y: 1288 },
+                    { x: new Date(2024, 11, 01), y: 1107 }
+                  ]
+                }]
+              }
+            
+              var visitorsOptions = {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title:{
+                  text: "Total expense"
+                },
+                axisY: {
+                  labelFormatter: addSymbols
+                },
+                data: [{
+                  type: "column", //change type to bar, line, area, pie, etc
+                  color: "#6D78AD",
+                  dataPoints: [
+                    { x: new Date(2024, 00, 01), y: 800 },
+                    { x: new Date(2024, 01, 01), y: 700 },
+                    { x: new Date(2024, 02, 01), y: 1000 },
+                    { x: new Date(2024, 03, 01), y: 900 },
+                    { x: new Date(2024, 04, 01), y: 1500},
+                    { x: new Date(2024, 05, 01), y: 2000 },
+                    { x: new Date(2024, 06, 01), y: 400 },
+                    { x: new Date(2024, 07, 01), y: 500 },
+                    { x: new Date(2024, 08, 01), y: 600},
+                    { x: new Date(2024, 09, 01), y: 300 },
+                    { x: new Date(2024, 10, 01), y: 200 },
+                    { x: new Date(2024, 11, 01), y: 100 }
+                  ]
+                }]
+              };
+            
+              charts.push(new CanvasJS.Chart("chartContainer1", visitorsOptions));
+              charts.push(new CanvasJS.Chart("chartContainer2", newUserOptions));
+              charts.push(new CanvasJS.Chart("chartContainer3", pageViewsOptions));
+              charts.push(new CanvasJS.Chart("chartContainer4", bounceRateOptions));
+              syncTooltip(charts);
+              
+              for( var i = 0; i < charts.length; i++){
+                charts[i].render();
+              }
+            
+              function syncTooltip(charts) {
+                
+                if(!this.onToolTipUpdated){
+                  this.onToolTipUpdated = function(e) {
+                    for (var j = 0; j < charts.length; j++) {
+                      if (charts[j] != e.chart)
+                        charts[j].toolTip.showAtX(e.entries[0].xValue);
+                    }
+                  }
+                }
+            
+                if(!this.onToolTipHidden){
+                  this.onToolTipHidden = function(e) {
+                    for( var j = 0; j < charts.length; j++){
+                      if(charts[j] != e.chart)
+                        charts[j].toolTip.hide();
+                    }
+                  }
+                }
+                
+                for(var i = 0; i < charts.length; i++) { 
+                    if(!charts[i].options.toolTip)
+                      charts[i].options.toolTip = {};
+            
+                    charts[i].options.toolTip.updated = this.onToolTipUpdated;
+                    charts[i].options.toolTip.hidden = this.onToolTipHidden;
+                }  
+              }
+            
+              function addSymbols(e){
+                  var suffixes = ["", "K", "M", "B"];
+            
+                  var order = Math.max(Math.floor(Math.log(Math.abs(e.value)) / Math.log(1000)), 0);
+                  if(order > suffixes.length - 1)
+                      order = suffixes.length - 1;
+            
+                  var suffix = suffixes[order];
+                  return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
+              }
+            }
+            </script>
+
+        <div class="dashboard" >
+            <div class="dashboard-header">
+                <h1 style="color: rgb(30, 114, 82);">Dashboard</h1>
+                <div class="icon-container">
+                  <i class="fas fa-plus add-icon" id="add-icon"></i>
+                    <i class="fas fa-bell"></i>
+                    <div class="user-icon-container">
+                      <i class="fas fa-user" id="user-icon"></i>Serge
+                      <div class="dropdown" id="dropdown">
+                          <a href="">Profile</a>
+                          <a href="#">Archieved</a>
+                          <a href="./index.html">Logout</a>
+                      </div>
+                  </div>
+    
+                </div>
+            </div>
+             
+              <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close" id="close">&times;</span>
+          <h3 style="font-weight: bold;">Add New Expense</h3>
+          <form id="expense-form">
+              <label for="amount" style="font-weight: bold;">Amount:</label>
+              <input type="number" id="amount" name="amount" required>
+              <label for="date" style="font-weight: bold;">Date:</label>
+              <input type="date" id="date" name="date" required>
+              <label for="description" style="font-weight: bold;">Description:</label>
+              <textarea id="description" name="description" required></textarea><br><br>
+              <button type="submit">Create</button>
+          </form>
+      </div>
+    </div>
+
+
+            <div class="dashboard-content">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h3>Expenses Monthly</h3>
+                        <p>$500</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Monthly Budget</h3>
+                        <p>$2000</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Savings</h3>
+                        <p>$1,500</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 style="color: rgb(30, 114, 82);">Expense Overview</h2>
+                    <div class="chart">
+                        <!-- Placeholder for chart -->
+                        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                        <div class="row">
+                          <div class="col" id="chartContainer2"></div>
+                          <div class="col" id="chartContainer3"></div>
+                          <div class="col" id="chartContainer4"></div>
+                        </div>
+                        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Recent Activities</h2>
+                <ul class="recent-activities">
+                    <li style="font-weight: bold;">Purchased groceries - $100</li>
+                    <li style="font-weight: bold;">electricity bill - $50</li>
+                    <li style="font-weight: bold;">car fuels - $80</li>
+                    <li style="font-weight: bold;">others - $270</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+
+<script src="./scripts/script.js"></script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('modal');
+    var addIcon = document.getElementById('add-icon');
+    var close = document.getElementById('close');
+    var userIcon = document.getElementById('user-icon');
+    var dropdown = document.getElementById('dropdown');
+
+    addIcon.onclick = function() {
+        modal.style.display = 'block';
+    }
+
+    close.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    userIcon.onclick = function() {
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    window.onclick = function(event) {
+        if (event.target != userIcon && !userIcon.contains(event.target) && event.target != dropdown && !dropdown.contains(event.target)) {
+            dropdown.style.display = 'none';
+        }
+
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    document.getElementById('expense-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Add your form submission logic here
+        modal.style.display = 'none';
+    });
+});
+
+   </script>
+</div>
+
+</body>
+</html>
