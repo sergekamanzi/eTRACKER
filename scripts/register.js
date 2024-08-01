@@ -6,7 +6,7 @@ document.getElementById('registerForm').addEventListener('submit', async (event)
     const password = document.getElementById('password').value;
   
     try {
-      const response = await fetch('http://e-tracker-backend-mysql-production.up.railway.app/api/register', { // Ensure this is the correct URL
+      const response = await fetch('https://e-tracker-backend-mysql-production.up.railway.app/api/register', { // Ensure this is the correct URL
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
